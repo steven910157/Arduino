@@ -38,6 +38,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -121,7 +122,6 @@
               ]
             },
             "id": "af9785e1-4dfb-453b-8633-ffede79390f1",
-            "zIndex": 1,
             "data": {
               "type": "tm.Actor",
               "name": "user",
@@ -173,6 +173,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 2,
             "ports": {
               "groups": {
                 "top": {
@@ -256,7 +257,6 @@
               ]
             },
             "id": "d246d7de-b3ae-4bc7-8b26-07a15a84364e",
-            "zIndex": 2,
             "data": {
               "type": "tm.Actor",
               "name": "admin",
@@ -524,6 +524,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 11,
             "ports": {
               "groups": {
                 "top": {
@@ -607,7 +608,6 @@
               ]
             },
             "id": "c2c6b84b-cc96-4332-b0fb-b19141d985f9",
-            "zIndex": 11,
             "data": {
               "type": "tm.Actor",
               "name": "web server",
@@ -636,13 +636,6 @@
                 "spoofing": 0,
                 "repudiation": 1
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -666,6 +659,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 12,
             "ports": {
               "groups": {
                 "top": {
@@ -749,7 +743,6 @@
               ]
             },
             "id": "d57627bb-0640-4042-81d6-2a774853063b",
-            "zIndex": 12,
             "data": {
               "type": "tm.Actor",
               "name": "data server",
@@ -759,7 +752,32 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "040acb11-ae68-40d3-a82c-ddc7276e8134",
+                  "title": "SQL injection",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "因為前面的web server在設計時沒有阻擋指令的輸入，故被修改較機密的資料",
+                  "mitigation": "因為已有備份，為被注入的server進行資料比對，查找異常位置，還原即可",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": "4"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 0
+              }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -783,6 +801,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 13,
             "ports": {
               "groups": {
                 "top": {
@@ -866,7 +885,6 @@
               ]
             },
             "id": "9443a50e-033a-42e5-b710-5afc7156f36b",
-            "zIndex": 13,
             "data": {
               "type": "tm.Actor",
               "name": "DB",
@@ -885,6 +903,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "steven910157",
-    "threatTop": 3
+    "threatTop": 4
   }
 }
